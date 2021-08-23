@@ -2,7 +2,9 @@ const express = require('express');
 const axios = require('axios');
 const bodyParser = require('body-parser');
 const md5 = require('js-md5');
-
+var log = require('console-emoji')
+var colorconsole = require('@kenworks/colorconsole')
+const Alphabet = require('alphabetjs')
 const app = express();
 const port = 3000;
 
@@ -266,4 +268,9 @@ app.post('/sendMessage', async (req, res) => {
 
 app.get('/', (req, res) => res.send('Hello World'));
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}!`)
+  const str = Alphabet('success','stereo')
+  log(str,'ok')
+  colorconsole.log('hello world!', 'blue', null, 'blink')
+});
